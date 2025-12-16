@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Saúde e Atendimento</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .resultado.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="auth-body">
+    <header>
+        <h1>✍️ Cadastro de Usuário</h1>
+    </header>
+
+    <main>
+        <div class="container auth-container">
+            <h3>Novo Cadastro</h3>
+
+            <label for="cadastroUsuario">Usuário:</label>
+            <input type="text" id="cadastroUsuario" placeholder="Escolha um nome de usuário"> 
+
+            <label for="cadastroEmail">Email:</label>
+            <input type="email" id="cadastroEmail" placeholder="Digite seu e-mail"> 
+
+            <label for="cadastroSenha">Senha:</label>
+            <input type="password" id="cadastroSenha" placeholder="Digite sua senha">
+
+            <label for="confirmarSenha">Confirmar Senha:</label>
+            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha">
+
+            <button onclick="fazerCadastro()">Cadastrar</button>
+            <div id="authResultado" class="resultado hidden"></div>
+            <p class="mt-20">Já tem conta? <a href="index.html">Faça Login</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Sistema Web de Saúde e Atendimento</p>
+        <p>Desenvolvido por João Victor, Vitor Gabriel, Carlos Eduardo e Darlan</p>
+    </footer>
+    
+    <script src="utils.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

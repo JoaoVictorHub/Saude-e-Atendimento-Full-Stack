@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde e Atendimento</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .resultado.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🏥 Atendimento de Pacientes</h1>
+    </header>
+
+    <div class="user-widget">
+        <div class="user-icon" onclick="exibirMenuUsuario()">
+            👤 <span id="usuarioLogadoNome"></span>
+        </div>
+        
+        <div id="menuUsuario" class="user-menu hidden">
+            <button onclick="abrirModalAlterarSenha()">🔑 Alterar Senha</button>
+            <button onclick="deslogarUsuario()">🚪 Deslogar</button>
+        </div>
+    </div>
+    <main>
+        <div class="container">
+            <h3>Registro de Novo Paciente</h3>
+
+            <label for="nomeInput">Nome:</label>
+            <input type="text" id="nomeInput" placeholder="Digite o nome do paciente" required>
+
+            <label for="dataNascimentoInput">Data de Nascimento:</label>
+            <input type="date" id="dataNascimentoInput" required>
+
+            <label for="cpfInput">CPF:</label>
+            <input type="text" id="cpfInput" placeholder="Digite o CPF do paciente (apenas números)" maxlength="11" required>
+
+            <label for="servicoInput">Serviço/Atendimento:</label>
+                <select id="servicoInput" required>
+                <option value="" disabled selected>Selecione o tipo de atendimento</option>
+                <option value="Triagem">Triagem</option>
+                <option value="Clínica Geral">Clínica Geral</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Cardiologia">Cardiologia</option>
+                <option value="Emergência">Emergência</option>
+                <option value="Outro">Outro</option>
+                </select>
+
+            <button onclick="adicionarPaciente()" id="btnRegistrar">Registrar</button>
+            <button onclick="salvarEdicao()" id="btnSalvarEdicao" class="hidden">Salvar Edição</button> 
+            <div id="resultado" class="resultado hidden"></div>
+        </div>
+
+        <div class="container lista-container">
+            <h3>📋 Pacientes Aguardando Atendimento</h3>
+            <ul id="listaPacientes">
+            </ul>
+        </div>
+
+        <div class="container lista-container" id="atendidos-container">
+            <h3>✅ Pacientes Atendidos</h3>
+            <ul id="listaAtendidos">
+            </ul>
+            
+            <button onclick="imprimirRelatorioGeral()" class="mt-20">🖨️ Imprimir Relatório Geral</button>
+        </div>
+        <div id="print-relatorio-geral" class="hidden"></div>
+    </main>
+    
+    <div id="modalAtendimento" class="modal hidden">
+        <div class="modal-content">
+            <h4>Avaliação do Atendimento</h4>
+            <p id="pacienteAtendimentoNome"></p>
+
+            <label for="tempoEspera">Tempo de Espera:</label>
+            <select id="tempoEspera" required>
+                <option value="Bom">Bom</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Ruim">Ruim</option>
+            </select>
+
+            <label for="notaServico">Nota para o Serviço:</label>
+            <select id="notaServico" required>
+                <option value="Bom">Bom</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Ruim">Ruim</option>
+            </select>
+            
+            <button onclick="finalizarAtendimento()" id="btnFinalizarAtendimento">Concluir Atendimento</button>
+            <button class="btn-cancelar" onclick="fecharModalAtendimento()">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modalAlterarSenha" class="modal hidden">
+        <div class="modal-content">
+            <h4>Alterar Senha</h4>
+            <label for="novaSenha">Nova Senha:</label>
+            <input type="password" id="novaSenha" placeholder="Mínimo 8 caracteres" required>
+
+            <label for="confirmaNovaSenha">Confirmar Nova Senha:</label>
+            <input type="password" id="confirmaNovaSenha" placeholder="Confirme a nova senha" required>
+            
+            <button onclick="salvarNovaSenha()">Salvar Nova Senha</button>
+            <div id="senhaResultado" class="resultado hidden"></div>
+            <button class="btn-cancelar" onclick="fecharModalAlterarSenha()">Cancelar</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; Sistema Web de Saúde e Atendimento</p>
+        <p>Desenvolvido por João Victor, Vitor Gabriel, Carlos Eduardo e Darlan</p>
+    </footer>
+    
+    <script src="utils.js"></script>
+    <script src="auth.js"></script>
+    <script src="pacientesData.js"></script>
+    <script src="pacientesController.js"></script>
+    <script src="pacientesView.js"></script>
+    <script src="atendimentoMain.js"></script>
+</body>
+</html>
