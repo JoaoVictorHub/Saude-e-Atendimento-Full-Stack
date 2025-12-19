@@ -62,6 +62,9 @@ A arquitetura do projeto é dividida entre o cliente (Front-end) e o servidor (B
     ```
 * **Atenção:** Crie o arquivo .env com suas credenciais (conforme a seção de segurança):
     ```
+    # Se não tiver o dotenv, instale
+    npm install dotenv
+    
     # Exemplo de conteúdo do .env
     DB_HOST=localhost
     DB_USER=root
@@ -74,6 +77,7 @@ A arquitetura do projeto é dividida entre o cliente (Front-end) e o servidor (B
     ```bash
     # Se não tiver o npm, instale
     npm install
+    
     # Se já tiver
     npm init -y
     npm install express mysql2 bcryptjs cors
