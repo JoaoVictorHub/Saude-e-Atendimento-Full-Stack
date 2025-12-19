@@ -38,7 +38,7 @@ A arquitetura do projeto é dividida entre o cliente (Front-end) e o servidor (B
 ## ⚙️ Como Rodar o Projeto Localmente
 
 ### 1. Pré-requisitos
-* **Node.js e npm** instalados.
+* **Node.js** instalado.
 * **Servidor MySQL** instalado e rodando.
 
 ### 2. Configuração do Banco de Dados
@@ -72,7 +72,11 @@ A arquitetura do projeto é dividida entre o cliente (Front-end) e o servidor (B
 ### 3. Instalação e Execução do Servidor (Back-end)
 * Navegue até o diretório raiz do projeto e instale as dependências:
     ```bash
+    # Se não tiver o npm, instale
     npm install
+    # Se já tiver
+    npm init -y
+    npm install express mysql2 bcryptjs cors
     ```
 * Inicie o servidor Node.js/Express:
     ```bash
